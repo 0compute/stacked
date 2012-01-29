@@ -12,7 +12,7 @@ setup(name="stacked",
       author="Ischium",
       author_email="support@ischium.net",
       url="https://github.com/ischium/stacked",
-      modules=("stacked",),
+      packages=("stacked",),
       tests_require=("nose", "yanc"),
       test_suite="nose.collector",
       )
