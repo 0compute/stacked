@@ -4,3 +4,4 @@
 /.tox/
 /nosetests-*.xml
 /stacked.egg-info/
+/dist/
