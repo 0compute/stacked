@@ -1,8 +1,3 @@
-import logging
-
-log = logging.getLogger(__name__)
-
-
 class Stacked(object):
 
     def __init__(self):
@@ -57,7 +52,6 @@ class Stacked(object):
             self._push(obj)
         for name in self._to_push_member:
             self._push(getattr(self, name))
-        log.debug("Entered %r", self)
         return self
 
     def __exit__(self, etype, evalue, etraceback):
@@ -69,5 +63,4 @@ class Stacked(object):
         while self._patch_stack:
             target, member, patch = self._patch_stack.pop()
             self._patch_target(target, member, patch)
-        log.debug("Exited %r", self)
         self._entered = False
