@@ -16,10 +16,9 @@
 
 from __future__ import with_statement  # py25 compat
 
-import nose
 import unittest
 
-from stacked import Stacked
+from .stacked import Stacked
 
 
 class _TestObject(object):
@@ -108,9 +107,8 @@ class TestStacked(unittest.TestCase):
     def test_double_entry(self):
         stacked = Stacked()
         stacked.__enter__()
-        nose.tools.assert_raises(RuntimeError, stacked.__enter__)
+        self.assertRaises(RuntimeError, stacked.__enter__)
 
     def test_bad_exit(self):
         stacked = Stacked()
-        nose.tools.assert_raises(RuntimeError,
-                                 stacked.__exit__, None, None, None)
+        self.assertRaises(RuntimeError, stacked.__exit__, None, None, None)
