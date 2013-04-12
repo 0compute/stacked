@@ -1,6 +1,7 @@
 *.pyc
 *$py.class
 /.build/
+/.dist/
 /.lib/
 /.venv/
 /.coverage
