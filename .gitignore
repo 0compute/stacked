@@ -1,8 +1,8 @@
 *.pyc
 *$py.class
+/.build/
+/.lib/
+/.venv/
 /.coverage
 /.ropeproject/
-/.tox/
-/nosetests-*.xml
 /stacked.egg-info/
-/dist/

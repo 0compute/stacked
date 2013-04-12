@@ -24,9 +24,8 @@ class Stacked(object):
                 for key in current:
                     if key not in patch:
                         patch[key] = current[key]
-                patch = patch
-        self._patch_stack.append((target, member, current))
         self._patch_target(target, member, patch)
+        self._patch_stack.append((target, member, current))
 
     def _register_patch(self, target, member, patch):
         self._to_patch.append((target, member, patch))
