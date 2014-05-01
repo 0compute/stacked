@@ -80,3 +80,7 @@ class Stacked(object):
             target, member, patch = self._patch_stack.pop()
             self._patch_target(target, member, patch)
         self._entered = False
+
+    # for convenience when not using as a context manager
+    push = __enter__
+    pop = __exit__
