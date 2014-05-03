@@ -22,5 +22,5 @@ Docs are todo. Read the source, Luke.
     :alt: Latest Version
 
 .. image:: https://pypip.in/license/stacked/badge.png
-    :target: https://github.com/0compute/makeenv/blob/master/LICENSE
+    :target: https://github.com/0compute/stacked/blob/master/LICENSE
     :alt: License
