@@ -1,9 +1,9 @@
-*.pyc
 *$py.class
+*.pyc
 /.build/
+/.coverage*
 /.dist/
 /.lib/
-/.venv/
-/.coverage
 /.ropeproject/
+/.venv/
 /stacked.egg-info/
