@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright 2012-2013 Arthur Noel
+# Copyright 2012-2014 Arthur Noel
 #
 # This file is part of Stacked.
 #
