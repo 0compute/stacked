@@ -18,17 +18,7 @@
 
 from setuptools import setup
 
-import stacked
-
-setup(name="stacked",
-      version=stacked.__version__,
-      description="Stacking utilities",
-      license="GPL",
-      keywords="context stack",
-      author="Arthur Noel",
-      author_email="arthur@0compute.net",
-      url="https://github.com/0compute/stacked",
-      packages=("stacked",),
-      tests_require=("nose", "yanc"),
-      test_suite="nose.collector",
-      )
+setup(
+    setup_requires=["pbr"],
+    pbr=True,
+)
