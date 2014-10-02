@@ -1,8 +1,8 @@
 *.pyc
 *$py.class
 /.build/
-/.dist/
-/.lib/
+/.coverage*
+/.makeenv*
 /.venv/
 /.coverage
 /.ropeproject/

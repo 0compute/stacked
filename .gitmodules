@@ -1,3 +1,0 @@
-[submodule ".makeenv"]
-	path = .makeenv
-	url = https://github.com/0compute/makeenv
