@@ -3,6 +3,5 @@
 /*.egg*
 /.build/
 /.coverage*
-/.dist/
-/.lib/
+/.makeenv*
 /.venv/
