@@ -65,7 +65,7 @@ class TestStacked(unittest.TestCase):
         stacked = Stacked()
         obj = _TestObject()
         to_patch = [(obj, "one", 2)]
-        stacked._register_patch(obj, "one", 2)
+        stacked.register_patch(obj, "one", 2)
         self.assertEqual(obj.one, 1)
         self.assertEqual(stacked._to_patch, to_patch)
         with stacked:
@@ -82,7 +82,7 @@ class TestStacked(unittest.TestCase):
     def test_register_push(self):
         stacked = Stacked()
         obj = _TestStackedObject()
-        stacked._register_push(obj)
+        stacked.register_push(obj)
         self.assertFalse(obj._entered)
         self.assertEqual(stacked._push_stack, [])
         with stacked:
@@ -94,7 +94,7 @@ class TestStacked(unittest.TestCase):
     def test_register_push_member(self):
         stacked = Stacked()
         obj = _TestStackedObject()
-        stacked._register_push_member("obj", obj)
+        stacked.register_push_member("obj", obj)
         self.assertEqual(stacked.obj, obj)
         self.assertFalse(obj._entered)
         self.assertEqual(stacked._push_stack, [])

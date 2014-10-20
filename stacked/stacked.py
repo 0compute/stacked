@@ -46,17 +46,17 @@ class Stacked(object):
         self._patch_target(target, member, patch)
         self._patch_stack.append((target, member, current))
 
-    def _register_patch(self, target, member, patch):
+    def register_patch(self, target, member, patch):
         self._to_patch.append((target, member, patch))
 
     def _push(self, obj):
         self._push_stack.append(obj)
         obj.__enter__()
 
-    def _register_push(self, obj):
+    def register_push(self, obj):
         self._to_push.append(obj)
 
-    def _register_push_member(self, name, obj):
+    def register_push_member(self, name, obj):
         setattr(self, name, obj)
         self._to_push_member.append(name)
 
