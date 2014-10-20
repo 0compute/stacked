@@ -14,6 +14,8 @@
 # You should have received a copy of the GNU General Public License along with
 # Stacked. If not, see <http://www.gnu.org/licenses/>.
 
+import copy
+
 
 class Stacked(object):
 
@@ -38,9 +40,9 @@ class Stacked(object):
             current = getattr(target, member, None)
             if isinstance(current, dict) and isinstance(patch, dict):
                 # if we are patching a dictionary we want to update not replace
-                for key in current:
-                    if key not in patch:
-                        patch[key] = current[key]
+                tmp = copy.copy(current)
+                tmp.update(patch)
+                patch = tmp
         self._patch_target(target, member, patch)
         self._patch_stack.append((target, member, current))
 
