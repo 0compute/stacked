@@ -104,11 +104,14 @@ class TestStacked(unittest.TestCase):
         self.assertFalse(obj._entered)
         self.assertEqual(stacked._push_stack, [])
 
-    def test_double_entry(self):
+    def test_entry(self):
         stacked = Stacked()
         stacked.__enter__()
-        self.assertRaises(RuntimeError, stacked.__enter__)
-
-    def test_bad_exit(self):
-        stacked = Stacked()
-        self.assertRaises(RuntimeError, stacked.__exit__, None, None, None)
+        self.assertTrue(stacked._entered)
+        # double entry is a noop
+        stacked.__enter__()
+        self.assertTrue(stacked._entered)
+        stacked.__exit__(None, None, None)
+        self.assertFalse(stacked._entered)
+        stacked.__exit__(None, None, None)
+        self.assertFalse(stacked._entered)

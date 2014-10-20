@@ -61,20 +61,17 @@ class Stacked(object):
         self._to_push_member.append(name)
 
     def __enter__(self):
-        if self._entered:
-            raise RuntimeError("Can't reenter %r " % self)
-        self._entered = True
-        for patch in self._to_patch:
-            self._patch(*patch)
-        for obj in self._to_push:
-            self._push(obj)
-        for name in self._to_push_member:
-            self._push(getattr(self, name))
-        return self
-
-    def __exit__(self, etype, evalue, etraceback):
         if not self._entered:
-            raise RuntimeError("Haven't entered %r" % self)
+            self._entered = True
+            for patch in self._to_patch:
+                self._patch(*patch)
+            for obj in self._to_push:
+                self._push(obj)
+            for name in self._to_push_member:
+                self._push(getattr(self, name))
+            return self
+
+    def __exit__(self, etype=None, evalue=None, etraceback=None):
         while self._push_stack:
             obj = self._push_stack.pop()
             obj.__exit__(etype, evalue, etraceback)
