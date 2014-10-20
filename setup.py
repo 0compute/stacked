@@ -19,6 +19,8 @@
 from setuptools import setup
 from setuptools.command import test
 
+import stacked
+
 # monkey patch test command to make nose work with `setup.py test`
 # see: http://fgimian.github.io/blog/2014/04/27/running-nose-tests-with-plugins-using-the-python-setuptools-test-command/
 test._test = test.test
@@ -46,12 +48,15 @@ class NoseTestCommand(test._test):
 test.test = NoseTestCommand
 
 
-setup(
-    setup_requires=["pbr"],
-    pbr=True,
-    tests_require=[
-        "nose >= 1.3",
-        "yanc >= 0.2",
-    ],
-    test_suite="nose.collector",
-)
+setup(name="stacked",
+      version=stacked.__version__,
+      description="Stacking utilities",
+      license="GPL",
+      keywords="context stack",
+      author="Arthur Noel",
+      author_email="arthur@0compute.net",
+      url="https://github.com/0compute/stacked",
+      packages=("stacked",),
+      tests_require=("nose", "yanc"),
+      test_suite="nose.collector",
+      )
